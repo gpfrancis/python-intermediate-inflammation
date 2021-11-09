@@ -39,7 +39,7 @@ def test_daily_max(test, expected):
     """Test that max function works for arrays of zeros and integers."""
     from inflammation.models import daily_max
     npt.assert_array_equal(daily_max(np.array(test)), np.array(expected))
-    
+
 
 def test_daily_min_string():
     """Test for TypeError when passing strings"""
