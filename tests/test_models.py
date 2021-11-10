@@ -97,3 +97,22 @@ def test_patient_normalise(test, expected, raises):
             npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
     else:
         npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+
+def test_attach_names():
+    """Test attaching names to patient data"""
+    from inflammation.models import attach_names
+
+    data = np.array([[1., 2., 3.],
+                     [4., 5., 6.]])
+    expected = [
+        {
+            'name': 'Alice',
+            'data': [1., 2., 3.],
+        },
+        {
+            'name': 'Bob',
+            'data': [4., 5., 6.],
+        },
+        ]
+    output = attach_names(data, ['Alice', 'Bob'])
+    npt.assert_array_equal(expected, output)

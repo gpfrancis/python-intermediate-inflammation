@@ -69,3 +69,13 @@ def patient_normalise(data):
 # TODO(lesson-design) Add Patient class
 # TODO(lesson-design) Implement data persistence
 # TODO(lesson-design) Add Doctor class
+
+
+def attach_names(data, names):
+    """Create datastructure containing patient records."""
+    assert len(data) == len(names)
+    output = []
+    for name, row in zip(names, data):
+        output.append({"name": name,
+                       "data": list(row)})
+    return output
